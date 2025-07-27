@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/aaron-lopez22/cse-341-project3#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongodb": "^6.18.0"
   }
 }
