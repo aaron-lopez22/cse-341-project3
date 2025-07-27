@@ -1,0 +1,23 @@
+{
+  "name": "cse-341-project3",
+  "version": "1.0.0",
+  "description": "This will be for my project 3 and 4 for cse 341",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaron-lopez22/cse-341-project3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaron-lopez22/cse-341-project3/issues"
+  },
+  "homepage": "https://github.com/aaron-lopez22/cse-341-project3#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
