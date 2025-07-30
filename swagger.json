@@ -188,7 +188,7 @@
     "/gameLogs/": {
       "get": {
         "tags": [
-          "GameLogs"
+          "Gamelogs"
         ],
         "description": "",
         "produces": [
@@ -202,7 +202,7 @@
       },
       "post": {
         "tags": [
-          "GameLogs"
+          "Gamelogs"
         ],
         "description": "",
         "parameters": [
@@ -247,7 +247,7 @@
     "/gameLogs/{id}": {
       "get": {
         "tags": [
-          "GameLogs"
+          "Gamelogs"
         ],
         "description": "",
         "produces": [
@@ -269,7 +269,7 @@
       },
       "put": {
         "tags": [
-          "GameLogs"
+          "Gamelogs"
         ],
         "description": "",
         "parameters": [
@@ -318,7 +318,7 @@
       },
       "delete": {
         "tags": [
-          "GameLogs"
+          "Gamelogs"
         ],
         "description": "",
         "parameters": [

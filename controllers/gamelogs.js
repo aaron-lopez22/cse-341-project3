@@ -1,9 +1,11 @@
 const mongodb = require('../data/database');
 
 const {ObjectId} = require('mongodb');
+const { validationResult } = require('express-validator');
+
 
 const getAll = async (req, res) => {
-    //#swagger.tags=['GameLogs']
+    //#swagger.tags=['Gamelogs']
     const result = await mongodb.getDatabase().collection('gamelogs').find();
     result.toArray().then((gamelogs) => {
         res.setHeader('Content-Type', 'application/json');
@@ -12,7 +14,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-    //#swagger.tags=['GameLogs']
+    //#swagger.tags=['Gamelogs']
     const gamelogsId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().collection('gamelogs').find({_id: gamelogsId});
     result.toArray().then((games) => {
@@ -22,7 +24,11 @@ const getSingle = async (req, res) => {
 };
 
 const createGameLog = async (req, res) => {
-    //#swagger.tags=['GameLogs']
+    //#swagger.tags=['Gamelogs']
+      const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
     const gamelog = {  
         userId : req.body.userId,
         gameId : req.body.gameId,
@@ -40,7 +46,11 @@ const createGameLog = async (req, res) => {
 };
 
 const updateGameLog = async (req, res) => {
-    //#swagger.tags=['GameLogs']
+    //#swagger.tags=['Gamelogs']
+      const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
     const gamelogId = new ObjectId(req.params.id);
     const updatedGameLog = {
         userId : req.body.userId,
@@ -60,7 +70,7 @@ const updateGameLog = async (req, res) => {
 };
 
 const deleteGameLog = async (req, res) => {
-    //#swagger.tags=['GameLogs']
+    //#swagger.tags=['Gamelogs']
     const gamelogId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().collection('gamelogs').deleteOne({ _id: gamelogId });
     if (result.deletedCount > 0) {

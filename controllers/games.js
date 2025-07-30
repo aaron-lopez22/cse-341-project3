@@ -1,6 +1,8 @@
 const mongodb = require('../data/database');
 
 const { ObjectId } = require('mongodb');
+const { validationResult } = require('express-validator');
+
 
 const getAll = async (req, res) => {
     //#swagger.tags=['Games']
@@ -24,6 +26,10 @@ const getSingle = async (req, res) => {
 
 const createGame = async (req, res) => {
       //#swagger.tags=['Games']
+        const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
    const game = {
    title: req.body.title,
    platform: req.body.platform,
@@ -43,6 +49,10 @@ const createGame = async (req, res) => {
 
 const updateGame = async (req, res) => {
       //#swagger.tags=['Games']
+        const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
     const gameId = new ObjectId(req.params.id);
     const updatedGame = {
         title: req.body.title,
