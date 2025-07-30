@@ -5,7 +5,7 @@
     "description": "API documentation for the CSE 341 Project 3",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse-341-project3-50ze.onrender.com",
   "basePath": "",
   "schemes": [
     "https"
