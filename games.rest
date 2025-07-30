@@ -1,0 +1,88 @@
+### 🟢 GET all games
+GET http://localhost:3000/games
+Content-Type: application/json
+
+
+### 🟢 GET single game (replace with actual ID)
+GET http://localhost:3000/games/64cabc1234567890abcdef12
+Content-Type: application/json
+
+
+### 🔵 POST new game
+POST http://localhost:3000/games
+Content-Type: application/json
+
+{
+  "title": "Celeste",
+  "platform": "PC",
+  "genre": "Platformer",
+  "developer": "Maddy Makes Games",
+  "releaseDate": "2018-01-25",
+  "rating": 9.5,
+  "description": "A heartfelt and difficult indie platformer."
+}
+
+
+### 🟡 PUT update game (replace with actual ID)
+PUT http://localhost:3000/games/64cabc1234567890abcdef12
+Content-Type: application/json
+
+{
+  "title": "Celeste Updated",
+  "platform": "Switch",
+  "genre": "Platformer",
+  "developer": "Maddy Makes Games",
+  "releaseDate": "2018-01-25",
+  "rating": 9.2,
+  "description": "Updated description"
+}
+
+
+### 🔴 DELETE game (replace with actual ID)
+DELETE http://localhost:3000/games/64cabc1234567890abcdef12
+Content-Type: application/json
+
+
+
+
+### 🟢 GET all gamelogs
+GET http://localhost:3000/gamelogs
+Content-Type: application/json
+
+
+### 🟢 GET single gamelog (replace with actual ID)
+GET http://localhost:3000/gamelogs/64cabc1234567890abcdef99
+Content-Type: application/json
+
+
+### 🔵 POST new gamelog
+POST http://localhost:3000/gamelogs
+Content-Type: application/json
+
+{
+  "userId": "user123",
+  "gameId": "64cabc1234567890abcdef12",
+  "status": "playing",
+  "hoursPlayed": 12,
+  "notes": "Really enjoying this platformer",
+  "lastPlayed": "2025-07-29"
+}
+
+
+### 🟡 PUT update gamelog (replace with actual ID)
+PUT http://localhost:3000/gamelogs/64cabc1234567890abcdef99
+Content-Type: application/json
+
+{
+  "userId": "user123",
+  "gameId": "64cabc1234567890abcdef12",
+  "status": "completed",
+  "hoursPlayed": 18,
+  "notes": "Beat the game!",
+  "lastPlayed": "2025-07-30"
+}
+
+
+### 🔴 DELETE gamelog (replace with actual ID)
+DELETE http://localhost:3000/gamelogs/64cabc1234567890abcdef99
+Content-Type: application/json
