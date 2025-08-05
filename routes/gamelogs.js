@@ -14,15 +14,17 @@ const gamelogValidationRules = [
   body('lastPlayed').isISO8601().withMessage('Must be a valid date')
 ];
 
+const { isAuthenticated } = require('../authenticate');
+
 router.get('/', gamelogsController.getAll);
 
 router.get('/:id', gamelogsController.getSingle);
 
-router.post('/', gamelogValidationRules, gamelogsController.createGameLog);
+router.post('/', isAuthenticated, gamelogValidationRules, gamelogsController.createGameLog);
 
-router.put('/:id', gamelogValidationRules, gamelogsController.updateGameLog);
+router.put('/:id', isAuthenticated, gamelogValidationRules, gamelogsController.updateGameLog);
 
-router.delete('/:id', gamelogsController.deleteGameLog);    
+router.delete('/:id', isAuthenticated, gamelogsController.deleteGameLog);    
 
 
 

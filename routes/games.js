@@ -15,16 +15,18 @@ const gameValidationRules = [
   body('description').isLength({ min: 10 }).withMessage('Description must be at least 10 characters')
 ];
 
+const { isAuthenticated } = require('../authenticate');
+
 router.get('/', usersController.getAll);
 
 router.get('/:id', usersController.getSingle);
 
-router.post('/', gameValidationRules, usersController.createGame);
+router.post('/', isAuthenticated, gameValidationRules, usersController.createGame);
 
-router.put('/:id', gameValidationRules, usersController.updateGame);
+router.put('/:id', isAuthenticated, gameValidationRules, usersController.updateGame);
 
 
-router.delete('/:id', usersController.deleteGame);
+router.delete('/:id', isAuthenticated, usersController.deleteGame);
 
 
 module.exports = router;
