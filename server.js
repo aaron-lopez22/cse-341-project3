@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyparser = require('body-parser');
-
-const mongodb = require('./data/database');
-const pasport = require('passport');
 const session = require('express-session');
-const GitHubStrategy = require('passport-github2').Strategy;
-const cors = require('cors');
+const mongodb = require('./data/database');
 const passport = require('passport');
+const cors = require('cors');
+
+const GitHubStrategy = require('passport-github2').Strategy;
+
 
 
 
@@ -18,10 +18,10 @@ app.use(bodyparser.json())
 .use(session({
   secret: "secret",
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 }))
-.use(pasport.initialize())
-.use(pasport.session())
+.use(passport.initialize())
+.use(passport.session())
 .use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
@@ -58,7 +58,7 @@ passport.deserializeUser((user, done) => {
 app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : 'Logged Out'); });
 
 app.get('/github/callback', passport.authenticate('github', {
-  failureRedirect: '/api-docs', session: false
+  failureRedirect: '/api-docs', session: true
 }), (req, res) => {
   req.session.user = req.user;
   res.redirect('/');
